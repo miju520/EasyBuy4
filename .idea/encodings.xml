@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/xkit/easybuy/dao/EasyBuy_userDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/xkit/easybuy/entity/EasyBuy_UserInfo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/xkit/easybuy/service/Easybuy_userSevice.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/xkit/easybuy/servlet/EasyBuy_user_addressController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/xkit/easybuy/servlet/EasybuyController.java" charset="GBK" />
+  </component>
+</project>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xkit.easybuy.dao.EasyBuy_userDAO">	
+	<select id="Login" resultType="EasyBuy_UserInfo">
+	    select * from easybuy_user where loginName=#{user} and password=#{pwd};
+	</select>
+	<insert id="insert" parameterType="EasyBuy_UserInfo" >
+	    INSERT INTO easybuy_user(`loginName`,`userName`,`password`,`sex`,`identityCode`,`email`,`mobile`,`type`) 
+	    VALUES(#{loginName},#{userName},#{password},#{sex},#{identityCode},#{email},#{mobile},#{type});
+	</insert>		
+	<select id="Get" parameterType="java.lang.String" resultType="int">
+	    SELECT COUNT(*) FROM EasyBuy_User WHERE `loginName` =#{loginName}
+	</select>
+	<select id="SelectUserInfo" resultType="EasyBuy_UserInfo">
+	    SELECT * FROM easybuy_user
+	    <where>
+	        <if test="u.loginName!=null and u.loginName!=''">
+	            and loginName like '%${u.loginName}%'
+	        </if>
+	        <if test="u.userName!=null and u.userName!=''">
+	            and userName like '%${u.userName}%'
+	        </if>
+	        <if test="u.sex!=null and u.sex!=''">
+	            and sex like #{u.sex}
+	        </if>
+	        <if test="u.mobile!=null and u.mobile!=''">
+	            and mobile like '%${u.mobile}%'
+	        </if>
+	    </where>
+	    LIMIT #{index},#{size};
+	</select>
+	<select id="Count" resultType="int">
+	    SELECT COUNT(*) FROM EasyBuy_User	
+	      <where>
+	        <if test="u2.loginName!=null and u2.loginName!=''">
+	            and loginName like '%${u2.loginName}%'
+	        </if>
+	        <if test="u2.userName!=null and u2.userName!=''">
+	            and userName like '%${u2.userName}%'
+	        </if>
+	        <if test="u2.sex!=null and u2.sex!=''">
+	            and sex like #{u2.sex}
+	        </if>
+	        <if test="u2.mobile!=null and u2.mobile!=''">
+	            and mobile like '%${u2.mobile}%'
+	        </if>
+	    </where>   
+	</select>
+	<delete id="delete" parameterType="int">
+	     DELETE FROM easybuy_user WHERE id =#{id};
+	</delete>
+	<update id="update">
+           UPDATE easybuy_user SET `loginName`=#{user.loginName},`userName`=#{user.userName},`sex`=#{user.sex},`mobile`=#{user.mobile}
+           WHERE id=#{id};
+	</update>
+	<select id="querydtuserinfo" resultType="EasyBuy_UserInfo" parameterType="int">
+		   select * from easybuy_user where id =#{id};
+	</select>
+</mapper>

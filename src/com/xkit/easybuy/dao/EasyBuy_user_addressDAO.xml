@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xkit.easybuy.dao.EasyBuy_user_addressDAO">	
+	<select id="selectuser" resultType="EasyBuy_UserInfo" >
+	    SELECT * FROM easybuy_user
+	</select>		
+	<insert id="insert" parameterType="int">
+	    INSERT INTO easybuy_user_address(`userId`,`address`,`createTime`,`isDefault`,`remark`) 
+	    VALUES(#{userId},#{address},#{createTime},#{isDefault},#{remark});
+	</insert>	
+</mapper>
